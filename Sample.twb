@@ -2953,9 +2953,81 @@
       </table>
       <simple-id uuid='{85CBDDE4-3B94-4307-8C34-683BF5F6476A}' />
     </worksheet>
+    <worksheet name='Sum of Sale over Time (Tabular Format)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Sample - Superstore' />
+          </datasources>
+          <datasource-dependencies datasource='Sample - Superstore'>
+            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Order Date]' derivation='None' name='[none:Order Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Order Date]' derivation='Year' name='[yr:Order Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[Sample - Superstore].[none:Order Date:ok]'>
+            <groupfilter function='member' level='[none:Order Date:ok]' member='#2022-12-30#' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[Sample - Superstore].[none:Order Date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[Sample - Superstore].[sum:Sales:qk]' value='n&quot;$&quot;#,##0.00;-&quot;$&quot;#,##0.00' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[Sample - Superstore].[yr:Order Date:ok]' value='480' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='font-size' field='[Sample - Superstore].[yr:Order Date:ok]' value='72' />
+            <format attr='text-align' field='[Sample - Superstore].[yr:Order Date:ok]' value='center' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+            <format attr='font-size' value='24' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Sample - Superstore].[sum:Sales:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#dd0031' fontname='Tableau Bold' fontsize='72'>&lt;</run>
+                <run fontcolor='#dd0031' fontname='Tableau Bold' fontsize='72'>[Sample - Superstore].[sum:Sales:qk]</run>
+                <run fontcolor='#dd0031' fontname='Tableau Bold' fontsize='72'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[Sample - Superstore].[yr:Order Date:ok]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{5856590E-F0EB-450C-B30B-77259D609CE5}' />
+    </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sum of Sale over Time' tab-color='#4f779a'>
+    <window class='worksheet' name='Sum of Sale over Time' tab-color='#4f779a'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2984,6 +3056,36 @@
         </highlight>
       </viewpoint>
       <simple-id uuid='{5BA2DD75-6382-42B8-849C-63EAC67E8AE6}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sum of Sale over Time (Tabular Format)' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[Sample - Superstore].[mn:Order Date:ok]</field>
+            <field>[Sample - Superstore].[none:Order Date:qk]</field>
+            <field>[Sample - Superstore].[yr:Order Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{67323E0F-3D7E-4048-94DB-87132D0B61AE}' />
     </window>
   </windows>
   <thumbnails>
@@ -3119,6 +3221,61 @@
       Q7vDycbKIpLZiiSB7xM/CmazGSQJp6uPoL+PwaEh5I/2bXN6cNpNyB/dyhi0IhjtDI6O4+np
       YXh4GF+fB7PZjCRBYGgUt9vJYMCHUsqzkS3gdroYGQyCBLLJysTYML2+foaHR/j/6rBM/y5S
       88YAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sum of Sale over Time (Tabular Format)' width='192'>
+      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
+      aQpATPsLaCQ9ekrT+YcAAAAASUVORK5CYII=
     </thumbnail>
   </thumbnails>
 </workbook>
